@@ -10,8 +10,9 @@ public class Menu {
     private boolean validacion=true;
     private int cantidad;
     private double valor;
-
+    public String message;
     private String uri;
+    private AlmacenarDatos almacenarDatos = new AlmacenarDatos();
     private String menuOpciones = """
             *****Conversor de Moneda******
             1) Dólar =>> Peso argentino\n
@@ -68,6 +69,7 @@ public class Menu {
                 break;
             case 7:
                 System.out.println("*************************");
+                almacenarDatos.getDatosList();
                 System.out.println("Fuera del sistema");
                 validacion=false;
                 break;
@@ -94,7 +96,9 @@ public class Menu {
             cantidad = lectura.nextInt();
             setUri("USD", "ARS", cantidad);
             valor = consultarApi(uri);
-            System.out.println("El valor "+(double) cantidad +" [USD] " + "corresponde al valor final de =>> "+valor+ " [ARS]");
+            message =  "El valor "+(double) cantidad +" [USD] " + "corresponde al valor final de =>> "+valor+ " [ARS]\n";
+            almacenarDatos.setDatosList(message);
+            System.out.println(message);
         } catch (Exception e){
             throw new RuntimeException(e);
         }
@@ -108,7 +112,9 @@ public class Menu {
             cantidad = lectura.nextInt();
             setUri("ARS", "USD", cantidad);
             valor = consultarApi(uri);
-            System.out.println("El valor "+(double) cantidad +" [ARS] " + "corresponde al valor final de =>> "+valor+ " [USD]");
+            message = "El valor "+(double) cantidad +" [ARS] " + "corresponde al valor final de =>> "+valor+ " [USD]\n";
+            almacenarDatos.setDatosList(message);
+            System.out.println(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -119,7 +125,9 @@ public class Menu {
             cantidad = lectura.nextInt();
             setUri("USD", "BRL", cantidad);
             valor = consultarApi(uri);
-            System.out.println("El valor "+(double) cantidad +" [USD] " + "corresponde al valor final de =>> "+valor+ " [BRL]");
+            message = "El valor "+(double) cantidad +" [USD] " + "corresponde al valor final de =>> "+valor+ " [BRL]\n";
+            almacenarDatos.setDatosList(message);
+            System.out.println(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -131,8 +139,9 @@ public class Menu {
             cantidad = lectura.nextInt();
             setUri("BRL", "USD", cantidad);
             valor = consultarApi(uri);
-            System.out.println("El valor "+(double) cantidad +" [BRL] " + "corresponde al valor final de =>> "+valor+ " [USD]");
-
+            message =  "El valor "+(double) cantidad +" [BRL] " + "corresponde al valor final de =>> "+valor+ " [USD]\n";
+            almacenarDatos.setDatosList(message);
+            System.out.println(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -143,8 +152,9 @@ public class Menu {
             cantidad = lectura.nextInt();
             setUri("USD", "COP", cantidad);
             valor = consultarApi(uri);
-            System.out.println("El valor "+(double) cantidad +" [USD] " + "corresponde al valor final de =>> "+valor+ " [COP]");
-
+            message = "El valor "+(double) cantidad +" [USD] " + "corresponde al valor final de =>> "+valor+ " [COP]\n";
+            almacenarDatos.setDatosList(message);
+            System.out.println(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -155,8 +165,9 @@ public class Menu {
             cantidad = lectura.nextInt();
             setUri("COP", "USD", cantidad);
             valor = consultarApi(uri);
-            System.out.println("El valor "+(double) cantidad +" [COP] " + "corresponde al valor final de =>> "+valor+ " [USD]");
-
+            message =  "El valor "+(double) cantidad +" [COP] " + "corresponde al valor final de =>> "+valor+ " [USD]\n";
+            almacenarDatos.setDatosList(message);
+            System.out.println(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

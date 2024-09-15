@@ -12,9 +12,6 @@ import java.net.http.HttpResponse;
 
 public class ConsultaApi  {
     private String uri;
-
-
-
     private HttpClient client = HttpClient.newHttpClient();
     private Gson gson;
     private HttpRequest request;
